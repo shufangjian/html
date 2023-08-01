@@ -1,0 +1,615 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script>
+            var width = document.documentElement.clientWidth;
+            var scale = width / 640;
+            var css = "html{" + "font-size:" + (640 * scale) / 10 + "px" + "}";
+            document.write("<style>" + css + "</style>");
+        </script>
+        <style>
+            html {
+                font-size: 79.6px;
+            }
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            html {
+                background: #f5f5f5;
+            }
+
+            .avatar-container {
+                display: flex;
+                height: 3.8125rem;
+                background: #fff url(../img/wave.png) 0 bottom no-repeat;
+                background-size: 100%;
+                border-bottom: 1px solid #e3e6ea;
+            }
+
+            .avatar-container > div {
+                flex: 1;
+            }
+
+            .name-sex {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.375rem;
+            }
+
+            .name-sex > h4,
+            .name-sex > h5 {
+                width: 2.578125rem;
+                line-height: 0.9375rem;
+                color: #666;
+            }
+
+            .name-sex > h4 > span {
+                font-size: 0.46875rem;
+                color: #007aff;
+            }
+
+            .avatar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .avatar > img {
+                display: block;
+                width: 3rem;
+                height: 3.35625rem;
+                border: 0.171875rem solid #f8f8f8;
+            }
+
+            .input-container {
+                margin-bottom: 0.3125rem;
+                border-bottom: 1px solid #e3e6ea;
+                background: #fff;
+            }
+
+            .input-row {
+                display: flex;
+                align-items: center;
+                margin-left: 0.609375rem;
+                border-bottom: 1px solid #dddce0;
+            }
+
+            .input-row:last-child {
+                border-bottom: none;
+            }
+
+            .input-row > label {
+                display: block;
+                width: 2.9375rem;
+                font-size: 0.46875rem;
+                color: #808080;
+            }
+
+            .input-row > p {
+                flex: 1;
+                padding: 0.25rem 0.3rem;
+                line-height: 0.5rem;
+                font-size: 0.46875rem;
+                color: #333;
+                border: none;
+            }
+
+            .query-link {
+                position: relative;
+                margin-bottom: 0.3125rem;
+                height: 1.375rem;
+                border-top: 1px solid #e3e6ea;
+                border-bottom: 1px solid #e3e6ea;
+                background: #fff url(../img/link.png) 0.65625rem center
+                    no-repeat;
+                background-size: 0.5625rem;
+            }
+
+            .query-link:after {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                content: "";
+                display: block;
+                width: 0.234375rem;
+                height: 0.234375rem;
+                border-top: 0.046875rem solid #b3b3b3;
+                border-right: 0.046875rem solid #b3b3b3;
+                transform: rotate(45deg);
+            }
+
+            .query-link > a {
+                display: block;
+                height: 100%;
+                line-height: 1.375rem;
+                font-size: 0.46875rem;
+                color: #666;
+                padding-left: 1.5rem;
+            }
+
+            .query-link > a:active {
+                background: #e4e4e4;
+            }
+
+            .slide-container {
+                border-top: 1px solid #e3e6ea;
+                border-bottom: 1px solid #e3e6ea;
+                background: #fff;
+            }
+
+            .change-title {
+                position: relative;
+                padding-left: 0.65625rem;
+                line-height: 1.375rem;
+                font-size: 0.46875rem;
+                color: #007aff;
+            }
+
+            .change-title:active {
+                background: #e4e4e4;
+            }
+
+            /* .change-title:after {
+                position: absolute;
+                top: 50%;
+                right: 0.5rem;
+                margin-top: -0.117188rem;
+                content: "";
+                display: block;
+                width: 0.234375rem;
+                height: 0.234375rem;
+                border-top: 0.046875rem solid #b3b3b3;
+                border-right: 0.046875rem solid #b3b3b3;
+                transform: rotate(135deg);
+                transition: all 0.2s;
+            }
+
+            .change-title.open:after {
+                transform: rotate(315deg);
+            } */
+
+            .change-items {
+                overflow: hidden;
+                height: 0;
+            }
+
+            .change-items.show {
+                height: auto;
+            }
+
+            .items-container {
+                justify-content: center;
+                align-items: center;
+                border-top: 1px solid #e3e6ea;
+                border-bottom: 1px solid #e3e6ea;
+                overflow: hidden;
+            }
+
+            .info-item {
+                display: flex;
+                flex-direction: column;
+                border-left: 0.3125rem solid #7bb7fb;
+                border-bottom: 1px solid #e6e6e6;
+            }
+
+            .info-item:nth-child(2n) {
+                border-left-color: #fbde7b;
+            }
+
+            .list-row {
+                display: flex;
+                margin-left: 0.3125rem;
+                padding: 0.28125rem 0;
+                line-height: 0.75rem;
+                font-size: 0.46875rem;
+                border-bottom: 1px solid #e6e6e6;
+            }
+
+            .list-row:last-child {
+                border-bottom: none;
+            }
+
+            .list-row > label {
+                width: 2.203125rem;
+            }
+
+            .list-row > span {
+                flex: 1;
+            }
+        </style>
+        <!-- <link rel="stylesheet" href="../../css/electronic-license-sgxk.css" /> -->
+        <title>电子证照</title>
+    </head>
+
+    <body class="mui-android mui-android-6 mui-android-6-0" style="">
+        <div class="mui-content" style="width: 100%; height: 100%">
+            <div class="input-container">
+                <div class="input-row">
+                    <label>施工许可证号</label>
+                    <p>321001202005140101</p>
+                </div>
+                <div class="input-row">
+                    <label>建设项目编码</label>
+                    <p>3210011903140101</p>
+                </div>
+                <div class="input-row">
+                    <label>颁证单位</label>
+                    <p>扬州市住房和城乡建设局</p>
+                </div>
+                <div class="input-row">
+                    <label>建设单位</label>
+                    <p>江苏易发置业有限公司</p>
+                </div>
+                <div class="input-row">
+                    <label>工程名称</label>
+                    <p>
+                        扬州生态科技新城人才公寓项目施工地上部分一标段（1#公寓楼、2#公寓楼、7#公寓楼、8#公寓楼、水泵房）
+                    </p>
+                </div>
+                <div class="input-row">
+                    <label>施工合同价</label>
+                    <p>14138.95万元</p>
+                </div>
+                <div class="input-row">
+                    <label>颁证时间</label>
+                    <p>2020-05-14</p>
+                </div>
+                <div class="input-row">
+                    <label>证书状态</label>
+                    <p>有效</p>
+                </div>
+            </div>
+        </div>
+        <div class="query-link">
+            <a
+                href="http://zw.jscin.gov.cn:8088/?furl=http://58.213.147.240:7001/QLSX_TY/EpointZiZhi/Pages/DZZZ/ZhengZhaoPrint/ReadAttachFile.aspx?IsM=&amp;RowGuid=9b0d972f-fd00-4ef3-98f2-1d332f08866d"
+                >电子证书查询链接</a
+            >
+        </div>
+        <!-- 参建单位基本信息 -->
+        <div class="slide-container" id="CJDW">
+            <h2 href="#" class="change-title open" id="slide-btn_CJDW">
+                参建单位基本信息
+            </h2>
+            <div class="change-items show" id="change_CJDW">
+                <ul class="items-container" id="CJDW_Container">
+                    <!--<li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>
+                <li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>-->
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">单位类型</label>
+                            <p>勘察单位</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">单位名称</label>
+                            <p>江苏省工程勘测研究院有限责任公司</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">项目负责人</label>
+                            <p>张桂萍</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">合同备案号</label>
+                            <p>321000000020190186</p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">单位类型</label>
+                            <p>设计单位</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">单位名称</label>
+                            <p>江苏省建筑设计研究院有限公司</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">项目负责人</label>
+                            <p>徐延峰</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">合同备案号</label>
+                            <p>321002020120190433</p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">单位类型</label>
+                            <p>施工单位（总包）</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">单位名称</label>
+                            <p>江苏邗建集团有限公司</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">项目负责人</label>
+                            <p>潘丽</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">合同备案号</label>
+                            <p>3210022019091903A01000</p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">单位类型</label>
+                            <p>监理单位</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">单位名称</label>
+                            <p>扬州市建苑工程监理有限责任公司</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">项目负责人</label>
+                            <p>王忠红</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">合同备案号</label>
+                            <p>3210021909020101-HE-001</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 房屋建筑单体工程本信息 -->
+        <div class="slide-container" id="FWGC">
+            <h2 href="#" class="change-title open" id="slide-btn_FWGC">
+                房屋建筑单体工程基本信息
+            </h2>
+            <div class="change-items show" id="change_FWGC">
+                <ul class="items-container" id="FWGC_Container">
+                    <!--<li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>
+                <li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>-->
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">工程名称</label>
+                            <p>2#楼</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上面积</label>
+                            <p>8900.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下面积</label>
+                            <p>0.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上层数</label>
+                            <p>10</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下层数</label>
+                            <p></p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">其他</label>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">工程名称</label>
+                            <p>7#楼</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上面积</label>
+                            <p>4400.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下面积</label>
+                            <p>0.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上层数</label>
+                            <p>7</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下层数</label>
+                            <p></p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">其他</label>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">工程名称</label>
+                            <p>8#楼</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上面积</label>
+                            <p>4400.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下面积</label>
+                            <p>0.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上层数</label>
+                            <p>7</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下层数</label>
+                            <p></p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">其他</label>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">工程名称</label>
+                            <p>1#楼</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上面积</label>
+                            <p>6917.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下面积</label>
+                            <p>0.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上层数</label>
+                            <p>10</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下层数</label>
+                            <p></p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">其他</label>
+                            <p></p>
+                        </div>
+                    </li>
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">工程名称</label>
+                            <p>水泵房</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上面积</label>
+                            <p>36.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下面积</label>
+                            <p>0.00平方米</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地上层数</label>
+                            <p>1</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">地下层数</label>
+                            <p></p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">其他</label>
+                            <p></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 市政工程单体工程本信息 -->
+        <div class="slide-container" id="SZGC" style="display: none">
+            <h2 href="#" class="change-title" id="slide-btn_SZGC">
+                市政工程单体工程基本信息
+            </h2>
+            <div class="change-items" id="change_SZGC">
+                <ul class="items-container" id="SZGC_Container">
+                    <!--<li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>
+                <li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- 变更记录查询 -->
+        <div class="slide-container" id="BGJL" style="display: none">
+            <h2 href="#" class="change-title" id="slide-btn">变更记录查询</h2>
+            <div class="change-items" id="change_BG">
+                <ul class="items-container" id="BGJL_Container">
+                    <!--<li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>
+                <li class="info-item">
+                    <div class="list-row">
+                        <label for="">操作时间</label>
+                        <span>2017-09-12  12:00:00</span>
+                    </div>
+                    <div class="list-row">
+                        <label for="">操作内容</label>
+                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
+                    </div>
+                </li>-->
+                </ul>
+            </div>
+        </div>
+        <script
+            type="text/javascript"
+            src="../../js/libs/jquery-1.10.2.min.js"
+        ></script>
+        <script type="text/javascript" src="../../js/libs/mui.js"></script>
+        <script
+            type="text/javascript"
+            src="../../js/libs/epoint.moapi.js"
+        ></script>
+        <script
+            type="text/javascript"
+            src="../../js/libs/mustache.min.js"
+        ></script>
+        <script src="../../js/bizlogic/allsearch/electronic-license-ShiGongXK.js"></script>
+    </body>
+    <iframe style="display: none"></iframe>
+</html>
