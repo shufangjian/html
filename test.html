@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
@@ -7,10 +8,15 @@
         <meta
             http-equiv="X-UA-Compatible"
             content="ie=edge" />
-
+        <script>
+            var width = document.documentElement.clientWidth;
+            var scale = width / 640;
+            var css = 'html{' + 'font-size:' + (640 * scale) / 10 + 'px' + '}';
+            document.write('<style>' + css + '</style>');
+        </script>
         <style>
             html {
-                font-size: 79.6px;
+                font-size: 39px;
             }
             * {
                 padding: 0;
@@ -28,7 +34,7 @@
             .avatar-container {
                 display: flex;
                 height: 3.8125rem;
-                background: #fff;
+                background: #fff url(../img/wave.png) 0 bottom no-repeat;
                 background-size: 100%;
                 border-bottom: 1px solid #e3e6ea;
             }
@@ -109,7 +115,7 @@
                 height: 1.375rem;
                 border-top: 1px solid #e3e6ea;
                 border-bottom: 1px solid #e3e6ea;
-                background: #fff;
+                background: #fff url(../img/link.png) 0.65625rem center no-repeat;
                 background-size: 0.5625rem;
             }
 
@@ -157,12 +163,12 @@
                 background: #e4e4e4;
             }
 
-            /* .change-title:after {
+            .change-title:after {
                 position: absolute;
                 top: 50%;
                 right: 0.5rem;
                 margin-top: -0.117188rem;
-                content: "";
+                content: '';
                 display: block;
                 width: 0.234375rem;
                 height: 0.234375rem;
@@ -174,7 +180,7 @@
 
             .change-title.open:after {
                 transform: rotate(315deg);
-            } */
+            }
 
             .change-items {
                 overflow: hidden;
@@ -225,52 +231,46 @@
                 flex: 1;
             }
         </style>
-        <script>
-            var width = document.documentElement.clientWidth;
-            var scale = width / 640;
-            var css = 'html{' + 'font-size:' + (640 * scale) / 10 + 'px' + '}';
-            document.write('<style>' + css + '</style>');
-        </script>
-        <!-- <link rel="stylesheet" href="../../css/electronic-license-sgxk.css" /> -->
+        <link
+            rel="stylesheet"
+            href="../../css/electronic-license-sgxk.css" />
         <title>电子证照</title>
     </head>
 
     <body
-        class="mui-android mui-android-6 mui-android-6-0"
+        class="mui-ios mui-ios-16 mui-ios-16-6"
         style="">
         <div
             class="mui-content"
-            style="width: 100%">
+            style="width: 100%; height: 100%">
             <div class="input-container">
                 <div class="input-row">
                     <label>施工许可证号</label>
-                    <p>321001202005140101</p>
+                    <p>321003202102170103</p>
                 </div>
                 <div class="input-row">
                     <label>建设项目编码</label>
-                    <p>3210011903140101</p>
+                    <p>3210032009230101</p>
                 </div>
                 <div class="input-row">
                     <label>颁证单位</label>
-                    <p>扬州市住房和城乡建设局</p>
+                    <p>扬州市邗江区住房和城乡建设局</p>
                 </div>
                 <div class="input-row">
                     <label>建设单位</label>
-                    <p>江苏易发置业有限公司</p>
+                    <p>中国邮政储蓄银行股份有限公司扬州市分行</p>
                 </div>
                 <div class="input-row">
                     <label>工程名称</label>
-                    <p>
-                        扬州生态科技新城人才公寓项目施工地上部分一标段（1#公寓楼、2#公寓楼、7#公寓楼、8#公寓楼、水泵房）
-                    </p>
+                    <p>中国邮政储蓄银行股份有限公司扬州市分行营运用房项目</p>
                 </div>
                 <div class="input-row">
                     <label>施工合同价</label>
-                    <p>18138.95万元</p>
+                    <p>7843.64万元</p>
                 </div>
                 <div class="input-row">
                     <label>颁证时间</label>
-                    <p>2020-05-14</p>
+                    <p>2021-02-17</p>
                 </div>
                 <div class="input-row">
                     <label>证书状态</label>
@@ -280,10 +280,49 @@
         </div>
         <div class="query-link">
             <a
-                href="http://zw.jscin.gov.cn:8088/?furl=http://58.213.147.240:7001/QLSX_TY/EpointZiZhi/Pages/DZZZ/ZhengZhaoPrint/ReadAttachFile.aspx?IsM=&amp;RowGuid=9b0d972f-fd00-4ef3-98f2-1d332f08866d"
+                href="http://zw.jscin.gov.cn:8088/?furl=http://58.213.147.240:7001/QLSX_TY/EpointZiZhi/Pages/DZZZ/ZhengZhaoPrint/ReadAttachFile.aspx?IsM=&amp;RowGuid=068ecd8c-f12a-473f-9db2-9705024a79c9"
                 >电子证书查询链接</a
             >
         </div>
+
+        <!-- 勘察单位 -->
+        <div
+            class="slide-container"
+            id="CJDW">
+            <h2
+                href="#"
+                class="change-title open"
+                id="slide-btn_CJDW">
+                勘察单位基本信息
+            </h2>
+            <div
+                class="change-items show"
+                id="change_CJDW">
+                <ul
+                    class="items-container"
+                    id="CJDW_Container">
+                    <li class="info-item">
+                        <div class="input-row">
+                            <label for="">单位类型</label>
+                            <p>勘察单位</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">单位名称</label>
+                            <p>江苏省工程勘测研究院有限公司</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">项目负责人</label>
+                            <p>张艺</p>
+                        </div>
+                        <div class="input-row">
+                            <label for="">合同备案号</label>
+                            <p>32100000002020185</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- 参建单位基本信息 -->
         <div
             class="slide-container"
@@ -300,42 +339,22 @@
                 <ul
                     class="items-container"
                     id="CJDW_Container">
-                    <!--<li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>
-                <li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>-->
                     <li class="info-item">
                         <div class="input-row">
                             <label for="">单位类型</label>
-                            <p>勘察单位</p>
+                            <p>设计单位</p>
                         </div>
                         <div class="input-row">
                             <label for="">单位名称</label>
-                            <p>江苏省工程勘测研究院有限责任公司</p>
+                            <p>江苏中珩建筑设计研究院有限公司</p>
                         </div>
                         <div class="input-row">
                             <label for="">项目负责人</label>
-                            <p>张桂萍</p>
+                            <p>徐广梁</p>
                         </div>
                         <div class="input-row">
                             <label for="">合同备案号</label>
-                            <p>321000000020190186</p>
+                            <p>3210032009230101-HA-004</p>
                         </div>
                     </li>
                     <li class="info-item">
@@ -345,15 +364,15 @@
                         </div>
                         <div class="input-row">
                             <label for="">单位名称</label>
-                            <p>中外建工程设计与顾问有限公司</p>
+                            <p>上海华东建设发展设计有限公司</p>
                         </div>
                         <div class="input-row">
                             <label for="">项目负责人</label>
-                            <p>葛永昌</p>
+                            <p>李智勇</p>
                         </div>
                         <div class="input-row">
                             <label for="">合同备案号</label>
-                            <p>321002020120190433</p>
+                            <p>3210032209230101-HA-001</p>
                         </div>
                     </li>
                     <li class="info-item">
@@ -363,15 +382,15 @@
                         </div>
                         <div class="input-row">
                             <label for="">单位名称</label>
-                            <p>江苏伟业安装集团有限公司</p>
+                            <p>江苏邗建集团有限公司</p>
                         </div>
                         <div class="input-row">
                             <label for="">项目负责人</label>
-                            <p>郑久江</p>
+                            <p>黄俊</p>
                         </div>
                         <div class="input-row">
                             <label for="">合同备案号</label>
-                            <p>3210022019091903A01000</p>
+                            <p>3210032021012002A01000</p>
                         </div>
                     </li>
                     <li class="info-item">
@@ -381,15 +400,15 @@
                         </div>
                         <div class="input-row">
                             <label for="">单位名称</label>
-                            <p>扬州市建苑工程监理有限责任公司</p>
+                            <p>江苏建科工程咨询有限公司</p>
                         </div>
                         <div class="input-row">
                             <label for="">项目负责人</label>
-                            <p>钱国文</p>
+                            <p>刘德景</p>
                         </div>
                         <div class="input-row">
                             <label for="">合同备案号</label>
-                            <p>3210021909020101-HE-001</p>
+                            <p>3210032101190101-HE-001</p>
                         </div>
                     </li>
                 </ul>
@@ -411,34 +430,14 @@
                 <ul
                     class="items-container"
                     id="FWGC_Container">
-                    <!--<li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>
-                <li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>-->
                     <li class="info-item">
                         <div class="input-row">
                             <label for="">工程名称</label>
-                            <p>2#楼</p>
+                            <p>中国邮政储蓄银行股份有限公司扬州市分行营运用房项目施工</p>
                         </div>
                         <div class="input-row">
                             <label for="">地上面积</label>
-                            <p>8900.00平方米</p>
+                            <p>11894.00平方米</p>
                         </div>
                         <div class="input-row">
                             <label for="">地下面积</label>
@@ -446,111 +445,7 @@
                         </div>
                         <div class="input-row">
                             <label for="">地上层数</label>
-                            <p>10</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下层数</label>
                             <p></p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">其他</label>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="info-item">
-                        <div class="input-row">
-                            <label for="">工程名称</label>
-                            <p>7#楼</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上面积</label>
-                            <p>4400.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下面积</label>
-                            <p>0.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上层数</label>
-                            <p>7</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下层数</label>
-                            <p></p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">其他</label>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="info-item">
-                        <div class="input-row">
-                            <label for="">工程名称</label>
-                            <p>8#楼</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上面积</label>
-                            <p>4400.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下面积</label>
-                            <p>0.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上层数</label>
-                            <p>7</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下层数</label>
-                            <p></p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">其他</label>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="info-item">
-                        <div class="input-row">
-                            <label for="">工程名称</label>
-                            <p>1#楼</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上面积</label>
-                            <p>6917.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下面积</label>
-                            <p>0.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上层数</label>
-                            <p>10</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下层数</label>
-                            <p></p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">其他</label>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li class="info-item">
-                        <div class="input-row">
-                            <label for="">工程名称</label>
-                            <p>水泵房</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上面积</label>
-                            <p>36.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地下面积</label>
-                            <p>0.00平方米</p>
-                        </div>
-                        <div class="input-row">
-                            <label for="">地上层数</label>
-                            <p>1</p>
                         </div>
                         <div class="input-row">
                             <label for="">地下层数</label>
@@ -565,85 +460,7 @@
             </div>
         </div>
         <!-- 市政工程单体工程本信息 -->
-        <div
-            class="slide-container"
-            id="SZGC"
-            style="display: none">
-            <h2
-                href="#"
-                class="change-title"
-                id="slide-btn_SZGC">
-                市政工程单体工程基本信息
-            </h2>
-            <div
-                class="change-items"
-                id="change_SZGC">
-                <ul
-                    class="items-container"
-                    id="SZGC_Container">
-                    <!--<li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>
-                <li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>-->
-                </ul>
-            </div>
-        </div>
+
         <!-- 变更记录查询 -->
-        <div
-            class="slide-container"
-            id="BGJL"
-            style="display: none">
-            <h2
-                href="#"
-                class="change-title"
-                id="slide-btn">
-                变更记录查询
-            </h2>
-            <div
-                class="change-items"
-                id="change_BG">
-                <ul
-                    class="items-container"
-                    id="BGJL_Container">
-                    <!--<li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>
-                <li class="info-item">
-                    <div class="list-row">
-                        <label for="">操作时间</label>
-                        <span>2017-09-12  12:00:00</span>
-                    </div>
-                    <div class="list-row">
-                        <label for="">操作内容</label>
-                        <span>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</span>
-                    </div>
-                </li>-->
-                </ul>
-            </div>
-        </div>
     </body>
-    <iframe style="display: none"></iframe>
 </html>
